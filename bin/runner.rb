@@ -11,5 +11,3 @@ end
 puts "Enter a photo url:"
 image_url = gets.chomp
 user.add_photo(image_url)
-binding.pry
-puts 'hola'
