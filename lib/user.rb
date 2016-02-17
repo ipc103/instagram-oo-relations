@@ -6,7 +6,6 @@ class User
   def initialize(username)
     @username = username
     @@all << self
-    @photos = []
   end
 
   def self.all
@@ -15,6 +14,14 @@ class User
 
   def self.find_by_name(username)
     self.all.find {|user| user.username == username }
+  end
+
+  def photos
+    Photo.all.select { |photo| photo.user == self }
+  end
+
+  def add_photo(image_url)
+    photo = Photo.new(self, image_url)
   end
 
 
